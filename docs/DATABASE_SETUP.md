@@ -34,7 +34,7 @@
 ```bash
 # 启动 PostgreSQL Docker 容器
 sudo docker run -d \
-  --name postgres-container \
+  --name astramolecula-postgres \
   -e POSTGRES_USER=admin \
   -e POSTGRES_PASSWORD=secret \
   -e POSTGRES_DB=mydatabase \
@@ -42,7 +42,7 @@ sudo docker run -d \
   postgres
 
 # 执行初始化 SQL 脚本
-sudo docker exec -i postgres-container psql -U admin -d mydatabase < /home/songyou/projects/AstraMolecula/database/init_database_postgres.sql
+sudo docker exec -i astramolecula-postgres psql -U admin -d mydatabase < /Users/katherineliu/Documents/AstraMolecula/database/init_database_postgres.sql
 ```
 
 ### 方法二：使用本地 PostgreSQL
@@ -60,7 +60,7 @@ psql -U admin -d mydatabase < database/init_database_postgres.sql
 
 ```bash
 # Docker 方式
-sudo docker exec -it postgres-container psql -U admin -d mydatabase
+sudo docker exec -it astramolecula-postgres psql -U admin -d mydatabase
 
 # 本地方式
 psql -U admin -d mydatabase
@@ -217,7 +217,7 @@ CREATE INDEX IF NOT EXISTS idx_service_user_mappings_created_at ON service_user_
 
 ```bash
 # Docker 方式
-sudo docker exec -it postgres-container psql -U admin -d mydatabase
+sudo docker exec -it astramolecula-postgres psql -U admin -d mydatabase
 
 # 本地方式
 psql -U admin -h 127.0.0.1 -d mydatabase
@@ -262,16 +262,16 @@ DROP TABLE IF EXISTS users;
 
 ```bash
 # 启动容器
-sudo docker start postgres-container
+sudo docker start astramolecula-postgres
 
 # 停止容器
-sudo docker stop postgres-container
+sudo docker stop astramolecula-postgres
 
 # 查看容器日志
-sudo docker logs postgres-container
+sudo docker logs astramolecula-postgres
 
 # 删除容器（数据会丢失）
-sudo docker rm -f postgres-container
+sudo docker rm -f astramolecula-postgres
 ```
 
 ---

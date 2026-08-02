@@ -47,7 +47,7 @@ sudo apt-get install -y openmpi-bin
 conda install -c conda-forge mpi4py
 conda install numpy=1.23
 
-uvicorn main:app
+uvicorn main:app --reload 
 # 开放给其它后台服务时，可以设置环境变量 SERVICE_API_KEYS
 # 以逗号分隔多组 key，并让服务在请求时携带 `X-API-Key` 头部
 export SERVICE_API_KEYS="service-key-1,service-key-2"
